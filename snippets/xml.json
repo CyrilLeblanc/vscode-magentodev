@@ -1,0 +1,21 @@
+{
+	"DI Preference": {
+		"prefix": "di.pref",
+		"body": [
+			"<preference for=\"${1:Vendor\\Module\\Model\\Foo}\"",
+			"\ttype=\"${2:Vendor\\Module\\Module\\Foo}\" />"
+		],
+		"description": "preference"
+	},
+	"DI Plugin": {
+		"prefix": "di.plugin",
+		"body": [
+			"<type name=\"${1:Vendor\\Module\\Model\\Foo}\">",
+			"\t<plugin name=\"${2:vendor_module_plugin_module_model_foo}\"",
+			"\t\ttype=\"${3:Vendor\\Module\\Plugin\\Module\\Model\\FooPlugin}\"",
+			"\t\tsortOrder=\"${4:50}\" />",
+			"</type>"
+		],
+		"description": "plugin"
+	}
+}

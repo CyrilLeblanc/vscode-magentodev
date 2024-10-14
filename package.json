@@ -1,8 +1,12 @@
 {
   "name": "magentodev",
   "displayName": "MagentoDev",
-  "description": "",
-  "version": "0.0.1",
+  "description": "Make vscode a better IDE for Magento 2",
+  "repository": {
+	"type": "git",
+	"url": "https://github.com/CyrilLeblanc/vscode-magentodev.git"
+},
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.94.0"
   },
@@ -14,10 +18,15 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
+    "commands": [],
+    "snippets": [
       {
-        "command": "magentodev.helloWorld",
-        "title": "Hello World"
+        "language": "xml",
+        "path": "./snippets/xml.json"
+      },
+      {
+        "language": "php",
+        "path": "./snippets/php.json"
       }
     ]
   },
