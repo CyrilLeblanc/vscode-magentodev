@@ -9,10 +9,15 @@ export default function handleFolderCreation(fileUri: vscode.Uri) {
 	const { relativePath } = uriDescription;
 	const parts = relativePath.split("/");
 
-	if (parts.length === 4) {
-		createRegistrationFile(uriDescription, fileUri);
-		createModuleFile(uriDescription, fileUri);
+	// verify that the relativePath match the expected pattern for a module
+	// e.g. `app/code/Vendor/Module`
+	const isModule = parts.length === 4 && parts[0] === "app" && parts[1] === "code";
+	if (!isModule) {
+		return;
 	}
+
+	createRegistrationFile(uriDescription, fileUri);
+	createModuleFile(uriDescription, fileUri);
 }
 
 /**
