@@ -3,6 +3,7 @@ import * as vscode from 'vscode';
 export type Index = {[key: string]: {[key: string]: string}};
 
 export default abstract class AbstractIndex {
+	public code = '';
 	protected includePath: string = '';
 	protected buffer: Index = {};
 
@@ -22,6 +23,9 @@ export default abstract class AbstractIndex {
 		});
 	}
 
+	/**
+	 * Get an item from the buffer
+	 */
 	public get(id: string): {[key: string]: string} {
 		return this.buffer[id];
 	}
