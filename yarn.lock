@@ -1730,6 +1730,11 @@
   "resolved" "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz"
   "version" "4.0.0"
 
+"php-parser@^3.1.5":
+  "integrity" "sha512-jEY2DcbgCm5aclzBdfW86GM6VEIWcSlhTBSHN1qhJguVePlYe28GhwS0yoeLYXpM2K8y6wzLwrbq814n2PHSoQ=="
+  "resolved" "https://registry.npmjs.org/php-parser/-/php-parser-3.1.5.tgz"
+  "version" "3.1.5"
+
 "picocolors@^1.1.0":
   "integrity" "sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw=="
   "resolved" "https://registry.npmjs.org/picocolors/-/picocolors-1.1.0.tgz"

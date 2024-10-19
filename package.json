@@ -2,11 +2,14 @@
   "name": "magentodev",
   "displayName": "MagentoDev",
   "description": "Make vscode a better IDE for Magento 2",
+  "author": {
+    "name": "Cyril Leblanc"
+  },
   "repository": {
-	"type": "git",
-	"url": "https://github.com/CyrilLeblanc/vscode-magentodev.git"
-},
-  "version": "0.0.2",
+    "type": "git",
+    "url": "https://github.com/CyrilLeblanc/vscode-magentodev.git"
+  },
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.94.0"
   },
@@ -18,7 +21,27 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [],
+    "commands": [
+      {
+        "command": "magentodev.overrideInTheme",
+        "title": "MagentoDev: Override in theme"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "magentodev.overrideInTheme",
+          "when": "!explorerResourceIsFolder"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "magentodev.overrideInTheme",
+          "group": "z_magentodev@1",
+          "when": "!explorerResourceIsFolder"
+        }
+      ]
+    },
     "snippets": [
       {
         "language": "xml",
@@ -56,6 +79,7 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "php-parser": "^3.1.5",
     "xml-js": "^1.6.11"
   }
 }
