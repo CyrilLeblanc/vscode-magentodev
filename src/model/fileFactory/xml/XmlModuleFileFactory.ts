@@ -17,7 +17,7 @@ export default class XmlModuleFileFactory extends AbstractXmlFileFactory
 					sequence: {
 						module: {
 							_attributes: {
-								name: "Magento_Customer"
+								name: "Vendor_Module",
 							}
 						}
 					}

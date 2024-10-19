@@ -3,8 +3,8 @@ export default `<?php
 use Magento\\Framework\\Component\\ComponentRegistrar;
 
 ComponentRegistrar::register(
-	ComponentRegistrar::MODULE,
-	'{{vendor}}_{{module}}',
-	__DIR__
+    ComponentRegistrar::MODULE,
+    '{{vendor}}_{{module}}',
+    __DIR__
 );
 `;

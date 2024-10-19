@@ -1,8 +1,8 @@
 import * as vscode from "vscode";
-import uriDescriptor from "../models/uriDescriptor";
-import { UriDescription, UriDescriptionPhp, UriDescriptionXml } from "../types";
-import PhpRegistrationFileFactory from "../models/fileFactory/php/PhpRegistrationFileFactory";
-import XmlModuleFileFactory from "../models/fileFactory/xml/XmlModuleFileFactory";
+import uriDescriptor from "../model/uriDescriptor";
+import { UriDescription, UriDescriptionPhp, UriDescriptionXml } from "../type";
+import PhpRegistrationFileFactory from "../model/fileFactory/php/PhpRegistrationFileFactory";
+import XmlModuleFileFactory from "../model/fileFactory/xml/XmlModuleFileFactory";
 
 export default function handleFolderCreation(fileUri: vscode.Uri) {
 	const uriDescription = uriDescriptor.describe(fileUri);

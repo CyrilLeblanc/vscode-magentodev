@@ -1,5 +1,5 @@
 import AbstractPhpFileFactory from "./AbstractPhpFileFactory";
-import template from "../../../templates/php/registration";
+import template from "../../../template/php/registration";
 export default class PhpRegistrationFileFactory extends AbstractPhpFileFactory {
 
 	template = template;

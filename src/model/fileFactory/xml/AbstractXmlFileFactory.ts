@@ -1,4 +1,4 @@
-import { UriDescriptionXml } from "../../../types";
+import { UriDescriptionXml } from "../../../type";
 import AbstractFileFactory from "../AbstractFileFactory";
 import { js2xml } from "xml-js";
 

@@ -1,6 +1,6 @@
 import AbstractFileFactory from '../AbstractFileFactory';
-import template from '../../../templates/php/class';
-import { UriDescriptionPhp } from '../../../types';
+import template from '../../../template/php/class';
+import { UriDescriptionPhp } from '../../../type';
 
 export default abstract class AbstractPhpFileFactory extends AbstractFileFactory
 {

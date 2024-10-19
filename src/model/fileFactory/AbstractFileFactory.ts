@@ -1,4 +1,4 @@
-import { UriDescription } from '../../types';
+import { UriDescription } from '../../type';
 
 export default abstract class AbstractFileFactory {
 	protected template: string = '';

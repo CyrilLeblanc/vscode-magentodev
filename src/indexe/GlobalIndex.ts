@@ -1,12 +1,15 @@
+import Logger from "../logger";
 import AbstractIndex, { Index } from "./AbstractIndex";
+import ModuleIndex from "./ModuleIndex";
 import ThemeIndex from "./ThemeIndex";
 
 export default class GlobalIndex {
-	private indexes: {[key: string]: AbstractIndex};
+	protected indexes: {[key: string]: AbstractIndex};
 
 	constructor() {
 		this.indexes = {
-			'theme': new ThemeIndex()
+			'theme': new ThemeIndex(),
+			'module': new ModuleIndex(),
 		};
 	}
 
@@ -15,9 +18,10 @@ export default class GlobalIndex {
 	 */
 	public async indexAll() {
 		for (const code in this.indexes) {
-			const index = this.indexes[code];
-			await index.index();
+			await this.indexes[code].index();
 		}
+
+		Logger.info('All indexes are ready.');
 	}
 
 	/**
@@ -33,12 +37,12 @@ export default class GlobalIndex {
 	/**
 	 * Get all the indexes
 	 */
-	public getAll() {
+	public async getAll() {
 		var data: {[key: string]: Index} = {};
 
 		for (const code in this.indexes) {
 			const index = this.indexes[code];
-			data[code] = index.getAll();
+			data[code] = await index.getAll();
 		}
 
 		return data;

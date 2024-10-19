@@ -1,5 +1,5 @@
 import AbstractPhpFileFactory from "./AbstractPhpFileFactory";
-import template from "../../../templates/php/controller";
+import template from "../../../template/php/controller";
 
 export default class PhpControllerFileFactory extends AbstractPhpFileFactory
 {

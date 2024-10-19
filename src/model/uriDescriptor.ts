@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
-import { UriDescription, UriDescriptionPhp, UriDescriptionXml } from "../types";
+import { UriDescription, UriDescriptionPhp, UriDescriptionXml } from "../type";
+import { uriDescriptionPhtml } from "../type/UriDescriptionPhtml";
 
 export default {
 	/**
@@ -25,6 +26,8 @@ export default {
 				return this.describeXml(relativePath, basicDescription);
 			case "php":
 				return this.describePhp(relativePath, basicDescription);
+			case "phtml":
+				return this.describePhtml(relativePath, basicDescription);
 			default:
 				return basicDescription;
 		}
@@ -231,4 +234,20 @@ export default {
 
 		return namespace + "\\" + className;
 	},
+
+	/**
+	 * Describe a PHTML file
+	 *
+	 * @param relativePath {string}
+	 * @param description {UriDescription}
+	 * @returns {uriDescriptionPhtml}
+	 */
+	describePhtml(relativePath: string, description: UriDescription): uriDescriptionPhtml {
+		const type = 'template';
+
+		return {
+			...description,
+			type,
+		};
+	}
 };

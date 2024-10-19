@@ -1,13 +1,13 @@
 import * as vscode from "vscode";
-import AbstractFileFactory from "../models/fileFactory/AbstractFileFactory";
-import uriDescriptor from "../models/uriDescriptor";
-import { UriDescriptionPhp, UriDescriptionXml } from "../types";
-import PhpControllerFileFactory from "../models/fileFactory/php/PhpControllerFileFactory";
-import PhpBlockFileFactory from "../models/fileFactory/php/PhpBlockFileFactory";
-import PhpRegistrationFileFactory from "../models/fileFactory/php/PhpRegistrationFileFactory";
-import PhpClassFileFactory from "../models/fileFactory/php/PhpClassFileFactory";
-import XmlModuleFileFactory from "../models/fileFactory/xml/XmlModuleFileFactory";
-import XmlDiFileFactory from "../models/fileFactory/xml/XmlDiFileFactory";
+import AbstractFileFactory from "../model/fileFactory/AbstractFileFactory";
+import uriDescriptor from "../model/uriDescriptor";
+import { UriDescriptionPhp, UriDescriptionXml } from "../type";
+import PhpControllerFileFactory from "../model/fileFactory/php/PhpControllerFileFactory";
+import PhpBlockFileFactory from "../model/fileFactory/php/PhpBlockFileFactory";
+import PhpRegistrationFileFactory from "../model/fileFactory/php/PhpRegistrationFileFactory";
+import PhpClassFileFactory from "../model/fileFactory/php/PhpClassFileFactory";
+import XmlModuleFileFactory from "../model/fileFactory/xml/XmlModuleFileFactory";
+import XmlDiFileFactory from "../model/fileFactory/xml/XmlDiFileFactory";
 
 /**
  * Handle the file creation based on the give URI
@@ -69,7 +69,7 @@ async function setFileContent(fileUri: vscode.Uri, content: string) {
 		const editor = await vscode.window.showTextDocument(document);
 
 		await editor.edit((editBuilder) => {
-			// Clean file by deleting all content
+			// remove all file content
 			const lastLine = document.lineAt(document.lineCount - 1);
 			const textRange = new vscode.Range(
 				new vscode.Position(0, 0),
