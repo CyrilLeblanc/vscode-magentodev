@@ -1,9 +1,9 @@
 import * as vscode from 'vscode';
-import handleFileCreation from './action/handleFileCreation';
-import handleFolderCreation from './action/handleFolderCreation';
-import overrideInTheme from './action/overrideInTheme';
-import globalIndex from './indexe';
+import registerCommands from './command';
 import Logger from './logger';
+import { IndexAll } from "./indexation";
+import handleFileCreation from './observer/handleFileCreation';
+import handleFolderCreation from './observer/handleFolderCreation';
 
 export async function activate(context: vscode.ExtensionContext) {
 	Logger.info('Magento Dev extension activating...');
@@ -15,8 +15,9 @@ export async function activate(context: vscode.ExtensionContext) {
 		return;
 	}
 
-	// start indexing
-	globalIndex.indexAll();
+	registerCommands(context);
+
+	IndexAll();
 
 	// watch for file and folder creation in Magento workspaces
 	for (const workspace of magentoWorkspaces) {
@@ -35,16 +36,6 @@ export async function activate(context: vscode.ExtensionContext) {
 			folderCreationWatcher
 		);
 	}
-
-	// register commands
-	const commands = {
-		"magentodev.overrideInTheme": overrideInTheme
-	};
-	Object.entries(commands).forEach(([command, handler]) => {
-		context.subscriptions.push(
-			vscode.commands.registerCommand(command, handler)
-		);
-	});
 
 	Logger.info('Magento Dev Tools extension activated');
 }

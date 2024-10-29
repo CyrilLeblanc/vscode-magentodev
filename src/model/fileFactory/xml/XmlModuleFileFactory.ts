@@ -1,6 +1,7 @@
-import AbstractXmlFileFactory from "./AbstractXmlFileFactory";
+import { guessModule } from "../../../helper/uriHelper";
+import XmlFileFactory from "./XmlFileFactory";
 
-export default class XmlModuleFileFactory extends AbstractXmlFileFactory
+export default class XmlModuleFileFactory extends XmlFileFactory
 {
 	public getXmlObject(): object {
 		return {
@@ -11,7 +12,7 @@ export default class XmlModuleFileFactory extends AbstractXmlFileFactory
 				},
 				module: {
 					_attributes: {
-						name: this.uriDescription.vendor + "_" + this.uriDescription.module,
+						name: this.getModuleName(),
 						setup_version: "0.0.1",
 					},
 					sequence: {
@@ -24,5 +25,13 @@ export default class XmlModuleFileFactory extends AbstractXmlFileFactory
 				}
 			}
 		};
+	}
+
+	/**
+	 * Get the module name based on the file path.
+	 */
+	protected getModuleName(): string
+	{
+		return guessModule(this.uri);
 	}
 }

@@ -1,13 +1,27 @@
-import AbstractPhpFileFactory from "./AbstractPhpFileFactory";
-import template from "../../../template/php/registration";
+import * as vscode from 'vscode';
+import AbstractPhpFileFactory from './AbstractPhpFileFactory';
+import registrationTemplate from '../../../template/php/registration';
+
 export default class PhpRegistrationFileFactory extends AbstractPhpFileFactory {
+	template = registrationTemplate;
 
-	template = template;
-
-	protected getTemplateData(): {[key: string]: string} {
+	getTemplateData() {
 		return {
-			vendor: this.uriDescription.vendor,
-			module: this.uriDescription.module
+			moduleName: this.guessModuleName(),
 		};
+	}
+
+	/**
+	 * Guess the module name based on the file path.
+	 */
+	protected guessModuleName() {
+		const relativePath = vscode.workspace.asRelativePath(this.uri);
+		const parts = relativePath.split('/');
+
+		// Remove 'app/code' from the beginning
+		parts.shift();
+		parts.shift();
+
+		return parts.shift() + '_' + parts.shift();
 	}
 }

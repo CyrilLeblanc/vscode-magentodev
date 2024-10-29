@@ -1,11 +1,15 @@
-export default `<?php
+import { PhpClassTemplateData } from "./class";
 
-namespace {{namespace}};
+export type PhpBlockTemplateData = {} & PhpClassTemplateData;
+
+export default (data: PhpBlockTemplateData) => `<?php
+
+namespace ${data.namespace};
 
 use Magento\\Framework\\View\\Element\\Template;
 use Magento\\Framework\\View\\Element\\Template\\Context;
 
-class {{className}} extends Template
+class ${data.className} extends Template
 {
     /**
      * Constructor

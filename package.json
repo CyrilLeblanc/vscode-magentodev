@@ -25,13 +25,17 @@
       {
         "command": "magentodev.overrideInTheme",
         "title": "MagentoDev: Override in theme"
+      },
+      {
+        "command": "magentodev.reindexAll",
+        "title": "MagentoDev: re-index all"
       }
     ],
     "menus": {
       "commandPalette": [
         {
           "command": "magentodev.overrideInTheme",
-          "when": "!explorerResourceIsFolder"
+          "when": "false"
         }
       ],
       "explorer/context": [
@@ -79,7 +83,6 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "php-parser": "^3.1.5",
     "xml-js": "^1.6.11"
   }
 }

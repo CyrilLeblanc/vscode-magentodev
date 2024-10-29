@@ -1,7 +1,8 @@
 import * as vscode from 'vscode';
+import Logger from '../logger';
 
-export type IndexRecord = {[key: string]: string};
-export type Index = {[key: string]: IndexRecord};
+export type AbstractIndexRecord = { [key: string]: string };
+export type Index = { [key: string]: any };
 
 export default abstract class AbstractIndex {
 	public code = '';
@@ -15,37 +16,38 @@ export default abstract class AbstractIndex {
 	 *
 	 * @returns {Promise<void>}
 	 */
-	public async index(): Promise<void> {
-		if (this.isReady) {
-			return;
-		}
+	public async startIndexing(): Promise<void> {
+		const files = await vscode.workspace.findFiles(
+			this.includePattern,
+			this.excludePattern
+		);
 
-		const files = await vscode.workspace.findFiles(this.includePattern, this.excludePattern);
-		files.forEach(async file => {
+		for(const file of files) {
 			try {
 				await this.processFile(file);
 			} catch (error) {
-				console.error('Can\'t process file index.', error, file);
+				console.error("Can't process file index.", error, file);
 			}
-		});
+		}
 
+		Logger.info(`Indexing ${this.code} done`);
 		this.isReady = true;
 	}
 
 	/**
 	 * Get an item from the buffer
 	 *
-	 * @param {string} id
-	 * @returns {Promise<IndexRecord>}
+	 * @param {string} key
+	 * @returns {Promise<AbstractIndexRecord>}
 	 */
-	public async get(id: string): Promise<IndexRecord> {
-		if (this.buffer[id]) {
-			return this.buffer[id];
+	public async get(key: string): Promise<AbstractIndexRecord> {
+		if (this.buffer[key]) {
+			return this.buffer[key];
 		}
 
 		await this.waitForReady();
 
-		return this.buffer[id];
+		return this.buffer[key];
 	}
 
 	/**

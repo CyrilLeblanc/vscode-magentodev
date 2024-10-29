@@ -1,39 +1,24 @@
 import AbstractFileFactory from '../AbstractFileFactory';
-import template from '../../../template/php/class';
-import { UriDescriptionPhp } from '../../../type';
 
 export default abstract class AbstractPhpFileFactory extends AbstractFileFactory
 {
-	protected template: string = template;
-
-	public constructor(
-		protected uriDescription: UriDescriptionPhp
-	) {
-		super(uriDescription);
-	}
-
-	/**
-	 * @inheritdoc
-	 */
-	protected getTemplateData(): {[key: string]: string} {
-		return {
-			namespace: this.uriDescription.namespace,
-			className: this.uriDescription.className
-		};
-	}
+	protected template: Function = () => '';
 
 	/**
 	 * Get the content for the file
+	 *
+	 * @returns {string}
 	 */
 	public create(): string {
-		const data = this.getTemplateData();
+		return this.template(this.getTemplateData());
+	}
 
-		var result = this.template;
-		Object.keys(data).forEach((key) => {
-			const regex = new RegExp(`{{${key}}}`, 'g');
-			result = result.replace(regex, data[key]);
-		});
-
-		return result;
+	/**
+	 * Get the template data
+	 *
+	 * @returns {any}
+	 */
+	protected getTemplateData(): any {
+		return {};
 	}
 }

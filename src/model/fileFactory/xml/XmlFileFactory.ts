@@ -1,15 +1,8 @@
-import { UriDescriptionXml } from "../../../type";
 import AbstractFileFactory from "../AbstractFileFactory";
 import { js2xml } from "xml-js";
 
-export default abstract class AbstractXmlFileFactory extends AbstractFileFactory
+export default class XmlFileFactory extends AbstractFileFactory
 {
-	public constructor(
-		protected uriDescription: UriDescriptionXml
-	) {
-		super(uriDescription);
-	}
-
 	/**
 	 * Create the file content
 	 *

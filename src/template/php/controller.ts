@@ -1,27 +1,25 @@
-export default `<?php
+import { PhpClassTemplateData } from "./class";
 
-namespace {{namespace}};
+export type PhpControllerTemplateData = {} & PhpClassTemplateData;
+
+export default (data: PhpControllerTemplateData) => `<?php
+
+namespace ${data.namespace};
 
 use Magento\\Framework\\App\\ActionInterface;
 use Magento\\Framework\\Controller\\ResultFactory;
 use Magento\\Framework\\Controller\\ResultInterface;
 
-class {{className}} implements ActionInterface
+class ${data.className} implements ActionInterface
 {
-    /**
-     * @var \\Magento\\Framework\\Controller\\ResultFactory
-     */
-    protected ResultFactory $resultFactory;
-
     /**
      * Constructor
      *
      * @param \\Magento\\Framework\\Controller\\ResultFactory $resultFactory
      */
     public function __construct(
-        ResultFactory $resultFactory
+        protected ResultFactory $resultFactory
     ) {
-        $this->resultFactory = $resultFactory;
     }
 
     /**

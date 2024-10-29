@@ -1,7 +1,13 @@
-export default `<?php
+export type PhpClassTemplateData = {
+	namespace: string;
+	className: string;
+};
 
-namespace {{namespace}};
+export default (data: PhpClassTemplateData) => `<?php
 
-class {{className}} {
+namespace ${data.namespace};
+
+class ${data.className}
+{
 }
 `;
