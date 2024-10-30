@@ -2,6 +2,8 @@
   "name": "magentodev",
   "displayName": "MagentoDev",
   "description": "Make vscode a better IDE for Magento 2",
+  "license": "GPL-3.0-only",
+  "publisher": "CyrilLeblanc",
   "author": {
     "name": "Cyril Leblanc"
   },
