@@ -12,7 +12,7 @@ export default class ModuleIndex extends AbstractIndex {
 	code = 'module';
 	buffer: { [key: string]: ModuleIndexRecord } = {};
 
-	async processFile(uri: vscode.Uri): Promise<void> {
+	async indexFile(uri: vscode.Uri): Promise<void> {
 		const xmlContent = await getXmlContent(uri);
 		const moduleName = xmlContent.config?.module?._attributes?.name as string;
 		const rootPath = vscode.workspace.asRelativePath(

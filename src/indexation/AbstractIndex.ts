@@ -24,7 +24,7 @@ export default abstract class AbstractIndex {
 
 		for(const file of files) {
 			try {
-				await this.processFile(file);
+				await this.indexFile(file);
 			} catch (error) {
 				console.error("Can't process file index.", error, file);
 			}
@@ -81,7 +81,7 @@ export default abstract class AbstractIndex {
 	 *
 	 * @param uri
 	 */
-	protected async processFile(uri: vscode.Uri): Promise<void> {
+	public async indexFile(uri: vscode.Uri): Promise<void> {
 		return new Promise(() => {});
 	}
 }

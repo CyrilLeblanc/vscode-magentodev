@@ -17,7 +17,7 @@ export default class ThemeIndex extends AbstractIndex {
 	code = 'theme';
 	buffer: { [key: string]: ThemeIndexRecord } = {};
 
-	async processFile(uri: vscode.Uri): Promise<void> {
+	async indexFile(uri: vscode.Uri): Promise<void> {
 		const themeXml = await getXmlContent(uri);
 		const title = themeXml.theme.title._text;
 		const parent = themeXml.theme?.parent?._text;
