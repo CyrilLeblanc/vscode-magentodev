@@ -9,14 +9,13 @@ import { guessNamespace } from '../helper/uriHelper';
 import PhpControllerFileFactory from '../model/fileFactory/php/PhpControllerFileFactory';
 import PhpBlockFileFactory from '../model/fileFactory/php/PhpBlockFileFactory';
 import XmlLayoutFileFactory from '../model/fileFactory/xml/XmlLayoutFileFactory';
+import { moduleIndex } from '../indexation';
 
 /**
  * Handle the file creation based on the give URI
- *
- * @param {vscode.Uri} fileUri
  */
 export default async function handleFileCreation(fileUri: vscode.Uri) {
-	// check if the file is empty
+	// check if the file is empty (for when the file created by an extension)
 	const fileStat = await vscode.workspace.fs.stat(fileUri);
 	if (fileStat.size !== 0) {
 		return;
@@ -29,13 +28,14 @@ export default async function handleFileCreation(fileUri: vscode.Uri) {
 
 	const content = fileFactory.create();
 	vscode.workspace.fs.writeFile(fileUri, Buffer.from(content));
+
+	if (fileFactory.constructor.name === 'XmlModuleFileFactory') {
+		moduleIndex.indexFile(fileUri);
+	}
 }
 
 /**
  * Get the file factory based on the given URI
- *
- * @param {vscode.Uri} fileUri
- * @returns {AbstractFileFactory|null}
  */
 function getFileFactory(fileUri: vscode.Uri): AbstractFileFactory | null {
 	const relativePath = vscode.workspace.asRelativePath(fileUri);
