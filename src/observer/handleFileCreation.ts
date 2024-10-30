@@ -8,6 +8,7 @@ import XmlDiFileFactory from '../model/fileFactory/xml/XmlDiFileFactory';
 import { guessNamespace } from '../helper/uriHelper';
 import PhpControllerFileFactory from '../model/fileFactory/php/PhpControllerFileFactory';
 import PhpBlockFileFactory from '../model/fileFactory/php/PhpBlockFileFactory';
+import XmlLayoutFileFactory from '../model/fileFactory/xml/XmlLayoutFileFactory';
 
 /**
  * Handle the file creation based on the give URI
@@ -15,6 +16,12 @@ import PhpBlockFileFactory from '../model/fileFactory/php/PhpBlockFileFactory';
  * @param {vscode.Uri} fileUri
  */
 export default async function handleFileCreation(fileUri: vscode.Uri) {
+	// check if the file is empty
+	const fileStat = await vscode.workspace.fs.stat(fileUri);
+	if (fileStat.size !== 0) {
+		return;
+	}
+	
 	const fileFactory = getFileFactory(fileUri);
 	if (!fileFactory) {
 		return;
@@ -71,6 +78,12 @@ function getFileFactory(fileUri: vscode.Uri): AbstractFileFactory | null {
 	// handle XML files
 	if (fileExtension === 'xml') {
 		FileFactoryClass = XmlFileFactory;
+		const parts = relativePath.split(/[\/\\]/);
+		const directory = parts[parts.length - 2];
+
+		if (directory === 'layout') {
+			FileFactoryClass = XmlLayoutFileFactory;
+		}
 
 		if (fileName === 'module') {
 			FileFactoryClass = XmlModuleFileFactory;
