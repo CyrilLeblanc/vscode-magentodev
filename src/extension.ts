@@ -11,7 +11,6 @@ export async function activate(context: vscode.ExtensionContext) {
 	// get all Magento workspaces
 	const magentoWorkspaces = await getMagentoWorkspaces();
 	if (magentoWorkspaces.length === 0) {
-		Logger.info('No Magento workspace found');
 		return;
 	}
 
@@ -49,14 +48,15 @@ export function deactivate() {}
  */
 async function getMagentoWorkspaces(): Promise<vscode.WorkspaceFolder[]> {
 	const workspaces = vscode.workspace.workspaceFolders;
+	const result = [];
 	if (!workspaces) {
 		return [];
 	}
 
-	return workspaces.filter(async (workspace) => {
-		const composerJsonUri = vscode.Uri.joinPath(workspace.uri, 'composer.json');
+	for (const workspace of workspaces) {
 		try {
 			// check if composer.json file exists
+			const composerJsonUri = vscode.Uri.joinPath(workspace.uri, 'composer.json');
 			await vscode.workspace.fs.stat(composerJsonUri);
 
 			// parse the content of composer.json
@@ -65,16 +65,20 @@ async function getMagentoWorkspaces(): Promise<vscode.WorkspaceFolder[]> {
 			const composerJsonObj = JSON.parse(composerJsonString);
 
 			// check if the composer.json file is a Magento workspace
-			if (composerJsonObj?.require['magento/product-community-edition']) {
-				Logger.info(`Magento workspace found: ${workspace.uri.fsPath}`);
-				return true;
+			if (!composerJsonObj?.require['magento/product-community-edition']) {
+				throw new Error('Not a Magento workspace');
 			}
 
 			// check if there's a app/code folder
 			const appCode = vscode.Uri.joinPath(workspace.uri, 'app', 'code');
 			await vscode.workspace.fs.stat(appCode);
+
+			Logger.info(`Magento workspace found: ${workspace.uri.fsPath}`);
+			result.push(workspace);
 		} catch (e) {
-			return false;
+			Logger.info(`Not a Magento workspace: ${workspace.uri.fsPath}`);
 		}
-	});
+	}
+
+	return result;
 }
