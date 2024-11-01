@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 
-const channel = vscode.window.createOutputChannel('Magento Dev');
+const channel = vscode.window.createOutputChannel('MagentoDev');
 
 export default class Logger {
 	public static write(message: string, level: string): void {

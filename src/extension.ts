@@ -6,7 +6,7 @@ import handleFileCreation from './observer/handleFileCreation';
 import handleFolderCreation from './observer/handleFolderCreation';
 
 export async function activate(context: vscode.ExtensionContext) {
-	Logger.info('Magento Dev extension activating...');
+	Logger.info('MagentoDev extension activating...');
 
 	// get all Magento workspaces
 	const magentoWorkspaces = await getMagentoWorkspaces();
@@ -36,7 +36,7 @@ export async function activate(context: vscode.ExtensionContext) {
 		);
 	}
 
-	Logger.info('Magento Dev Tools extension activated');
+	Logger.info('MagentoDev Tools extension activated');
 }
 
 export function deactivate() {}
