@@ -6,19 +6,15 @@ export default abstract class AbstractPhpFileFactory extends AbstractFileFactory
 
 	/**
 	 * Get the content for the file
-	 *
-	 * @returns {string}
 	 */
-	public create(): string {
+	public create() {
 		return this.template(this.getTemplateData());
 	}
 
 	/**
 	 * Get the template data
-	 *
-	 * @returns {any}
 	 */
-	protected getTemplateData(): any {
+	protected async getTemplateData(): Promise<any> {
 		return {};
 	}
 }

@@ -11,7 +11,7 @@ export default function handleFolderCreation(fileUri: vscode.Uri) {
 		return;
 	}
 
-	// create `registration.php` and `etc/module.xml` file
+	// create empty `registration.php` and `etc/module.xml` file
 	// the content of the files is managed in `handleFileCreation.ts`
 	const paths = [
 		vscode.Uri.joinPath(fileUri, 'registration.php'),

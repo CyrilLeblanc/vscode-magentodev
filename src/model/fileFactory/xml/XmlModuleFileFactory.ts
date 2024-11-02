@@ -3,7 +3,7 @@ import XmlFileFactory from "./XmlFileFactory";
 
 export default class XmlModuleFileFactory extends XmlFileFactory
 {
-	public getXmlObject(): object {
+	async getXmlObject() {
 		return {
 			config: {
 				_attributes: {

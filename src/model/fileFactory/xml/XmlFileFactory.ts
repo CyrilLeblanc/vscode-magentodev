@@ -5,10 +5,10 @@ export default class XmlFileFactory extends AbstractFileFactory
 {
 	/**
 	 * Create the file content
-	 *
-	 * @returns {string}
 	 */
-	public create(): string {
+	public async create() {
+		const xmlObject = await this.getXmlObject();
+		
 		return js2xml(
 			{
 				_declaration: {
@@ -16,7 +16,7 @@ export default class XmlFileFactory extends AbstractFileFactory
 						version: "1.0", encoding: "utf-8"
 					},
 				},
-				...this.getXmlObject()
+				...xmlObject
 			},
 			{ spaces: 4, compact: true }
 		);
@@ -24,10 +24,8 @@ export default class XmlFileFactory extends AbstractFileFactory
 
 	/**
 	 * Get the XML object
-	 *
-	 * @returns {object}
 	 */
-	public getXmlObject(): object {
+	public async getXmlObject(): Promise<object> {
 		return {};
 	}
 }

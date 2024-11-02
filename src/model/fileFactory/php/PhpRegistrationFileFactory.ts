@@ -5,7 +5,7 @@ import registrationTemplate from '../../../template/php/registration';
 export default class PhpRegistrationFileFactory extends AbstractPhpFileFactory {
 	template = registrationTemplate;
 
-	getTemplateData() {
+	async getTemplateData() {
 		return {
 			moduleName: this.guessModuleName(),
 		};

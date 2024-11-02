@@ -6,7 +6,7 @@ export default class PhpClassFileFactory extends AbstractPhpFileFactory
 {
 	template = classTemplate;
 
-	getTemplateData() {
+	async getTemplateData() {
 		return Object.assign(super.getTemplateData(), {
 			namespace: this.getNamespace(),
 			className: this.getClassName()
@@ -15,8 +15,6 @@ export default class PhpClassFileFactory extends AbstractPhpFileFactory
 
 	/**
 	 * Guess the class name from the uri
-	 *
-	 * @returns {string}
 	 */
 	protected getClassName(): string {
 		return guessClassName(this.uri);
@@ -24,8 +22,6 @@ export default class PhpClassFileFactory extends AbstractPhpFileFactory
 
 	/**
 	 * Guess the namespace from the uri
-	 *
-	 * @returns {string}
 	 */
 	protected getNamespace(): string {
 		return guessNamespace(this.uri);

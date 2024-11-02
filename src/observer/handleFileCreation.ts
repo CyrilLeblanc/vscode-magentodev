@@ -28,7 +28,7 @@ export default async function handleFileCreation(fileUri: vscode.Uri) {
 		return;
 	}
 
-	const content = fileFactory.create();
+	const content = await fileFactory.create();
 	vscode.workspace.fs.writeFile(fileUri, Buffer.from(content));
 
 	if (fileFactory.constructor.name === 'XmlModuleFileFactory') {
@@ -86,10 +86,6 @@ function getFileFactory(fileUri: vscode.Uri): AbstractFileFactory | null {
 		const parts = relativePath.split(/[\/\\]/);
 		const directory = parts[parts.length - 2];
 
-		if (directory === 'layout') {
-			FileFactoryClass = XmlLayoutFileFactory;
-		}
-
 		switch (fileName) {
 			case 'module':
 				FileFactoryClass = XmlModuleFileFactory;
@@ -103,6 +99,10 @@ function getFileFactory(fileUri: vscode.Uri): AbstractFileFactory | null {
 			default:
 				FileFactoryClass = XmlFileFactory;
 				break;
+		}
+
+		if (directory === 'layout') {
+			FileFactoryClass = XmlLayoutFileFactory;
 		}
 	}
 
