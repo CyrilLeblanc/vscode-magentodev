@@ -10,6 +10,8 @@ import PhpControllerFileFactory from '../model/fileFactory/php/PhpControllerFile
 import PhpBlockFileFactory from '../model/fileFactory/php/PhpBlockFileFactory';
 import XmlLayoutFileFactory from '../model/fileFactory/xml/XmlLayoutFileFactory';
 import { moduleIndex } from '../indexation';
+import XmlEventsFileFactory from '../model/fileFactory/xml/XmlEventsFileFactory';
+import PhpObserverFileFactory from '../model/fileFactory/php/PhpObserverFileFactory';
 
 /**
  * Handle the file creation based on the give URI
@@ -20,7 +22,7 @@ export default async function handleFileCreation(fileUri: vscode.Uri) {
 	if (fileStat.size !== 0) {
 		return;
 	}
-	
+
 	const fileFactory = getFileFactory(fileUri);
 	if (!fileFactory) {
 		return;
@@ -59,14 +61,17 @@ function getFileFactory(fileUri: vscode.Uri): AbstractFileFactory | null {
 		const type = parts.shift();
 
 		switch(type) {
-			case 'Model':
-				FileFactoryClass = PhpClassFileFactory;
-				break;
 			case 'Controller':
 				FileFactoryClass = PhpControllerFileFactory;
 				break;
 			case 'Block':
 				FileFactoryClass = PhpBlockFileFactory;
+				break;
+			case 'Observer':
+				FileFactoryClass = PhpObserverFileFactory;
+				break;
+			default:
+				FileFactoryClass = PhpClassFileFactory;
 				break;
 		}
 
@@ -85,12 +90,19 @@ function getFileFactory(fileUri: vscode.Uri): AbstractFileFactory | null {
 			FileFactoryClass = XmlLayoutFileFactory;
 		}
 
-		if (fileName === 'module') {
-			FileFactoryClass = XmlModuleFileFactory;
-		}
-
-		if (fileName === 'di') {
-			FileFactoryClass = XmlDiFileFactory;
+		switch (fileName) {
+			case 'module':
+				FileFactoryClass = XmlModuleFileFactory;
+				break;
+			case 'di':
+				FileFactoryClass = XmlDiFileFactory;
+				break;
+			case 'events':
+				FileFactoryClass = XmlEventsFileFactory;
+				break;
+			default:
+				FileFactoryClass = XmlFileFactory;
+				break;
 		}
 	}
 
