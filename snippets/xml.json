@@ -43,6 +43,84 @@
 		],
 		"description": "arguments (must be used inside a type node)"
 	},
+	"Layout: Container (start-close)": {
+		"prefix": "layout.container.start-close",
+		"body": [
+			"<container name=\"${1:my_container}\" htmlTag=\"${2:div}\" ${3:htmlClass=\"\"} ${4:htmlId=\"\"} ${5|before=\"\",after=\"\"|}>",
+			"\t${5}",
+			"</container>"
+		],
+		"description": "container"
+	},
+	"Layout: Container (self-closing)": {
+		"prefix": "layout.container.self-closing",
+		"body": [
+			"<container name=\"${1:my_container}\" htmlTag=\"${2:div}\" ${3:htmlClass=\"\"} ${4:htmlId=\"\"} ${5|before=\"\",after=\"\"|} />"
+		],
+		"description": "container"
+	},
+	"Layout: Block (start-close)": {
+		"prefix": "layout.block.start-close",
+		"body": [
+			"<block name=\"${1:my_block}\" class=\"${2:Magento\\Framework\\View\\Element\\Template}\" template=\"${3:Vendor_Module::my_template.phtml}\" ${4|before=\"\",after=\"\"|}>",
+			"\t${5}",
+			"</block>"
+		],
+		"description": "block"
+	},
+	"Layout: Block (self-closing)": {
+		"prefix": "layout.block.self-closing",
+		"body": [
+			"<block name=\"${1:my_block}\" class=\"${2:Magento\\Framework\\View\\Element\\Template}\" template=\"${3:Vendor_Module::my_template.phtml}\" ${4|before=\"\",after=\"\"|} />"
+		],
+		"description": "block"
+	},
+	"Layout: ReferenceContainer (start-close)": {
+		"prefix": "layout.referencecontainer.start-close",
+		"body": [
+			"<referenceContainer name=\"${1:content}\" ${2|before=\"\",after=\"\"|}>",
+			"\t${3}",
+			"</referenceContainer>"
+		],
+		"description": "reference container"
+	},
+	"Layout: ReferenceContainer (self-closing)": {
+		"prefix": "layout.referencecontainer.self-closing",
+		"body": [
+			"<referenceContainer name=\"${1:content}\" ${2|before=\"\",after=\"\",remove=\"true\"|} />"
+		],
+		"description": "reference container"
+	},
+	"Layout: ReferenceBlock (start-close)": {
+		"prefix": "layout.referenceblock.start-close",
+		"body": [
+			"<referenceBlock name=\"${1:my_block}\" ${2|before=\"\",after=\"\"|}>",
+			"\t${3}",
+			"</referenceBlock>"
+		],
+		"description": "reference block"
+	},
+	"Layout: ReferenceBlock (self-closing)": {
+		"prefix": "layout.referenceblock.self-closing",
+		"body": [
+			"<referenceBlock name=\"${1:my_block}\" ${2|before=\"\",after=\"\",remove=\"true\"|} />"
+		],
+		"description": "reference block"
+	},
+	"Layout: remove": {
+		"prefix": "layout.remove",
+		"body": [
+			"<remove name=\"${1:my_block}\" />"
+		],
+		"description": "remove block"
+	},
+	"Layout: Move": {
+		"prefix": "layout.move",
+		"body": [
+			"<move element=\"${1:my_block}\" destination=\"${2:my_destination}\" ${3|before=\"\",after=\"\"|} />"
+		],
+		"description": "move block"
+	},
 	"Events: Event": {
 		"prefix": "events.event",
 		"body": [
