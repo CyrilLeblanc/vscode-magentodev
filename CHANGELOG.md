@@ -6,6 +6,10 @@ All notable changes to the "magentodev" extension will be documented in this fil
 
 ## [unreleased]
 
+### Added
+
+- Extension icon.
+
 ### Changed
 
 - Update the `CHANGELOG.md` file.

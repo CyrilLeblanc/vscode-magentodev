@@ -2,16 +2,18 @@
   "name": "magentodev",
   "displayName": "MagentoDev",
   "description": "Make vscode a better IDE for Magento 2",
+  "icon": "media/icon.png",
+  "version": "0.1.0",
   "license": "GPL-3.0-only",
   "publisher": "CyrilLeblanc",
   "author": {
-    "name": "Cyril Leblanc"
+    "name": "Cyril Leblanc",
+    "url": "https://github.com/CyrilLeblanc"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/CyrilLeblanc/vscode-magentodev.git"
   },
-  "version": "0.0.5",
   "engines": {
     "vscode": "^1.94.0"
   },
