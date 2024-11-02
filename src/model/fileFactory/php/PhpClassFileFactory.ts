@@ -7,7 +7,7 @@ export default class PhpClassFileFactory extends AbstractPhpFileFactory
 	template = classTemplate;
 
 	async getTemplateData() {
-		return Object.assign(super.getTemplateData(), {
+		return Object.assign(await super.getTemplateData(), {
 			namespace: this.getNamespace(),
 			className: this.getClassName()
 		});
