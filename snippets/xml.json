@@ -121,6 +121,13 @@
 		],
 		"description": "move block"
 	},
+	"Layout: Update": {
+		"prefix": "layout.update",
+		"body": [
+			"<update handle=\"${1:my_handle}\" />"
+		],
+		"description": "update layout handle"
+	},
 	"Events: Event": {
 		"prefix": "events.event",
 		"body": [
