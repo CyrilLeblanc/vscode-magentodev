@@ -52,20 +52,24 @@ You can now override a view file in a specific theme by right clicking on the fi
     - [ ] crontab.xml
     - [ ] email_templates.xml
     - [ ] template.phtml
-- [ ] Snippets for common code blocks.
+- [x] Snippets for common code blocks.
     - [x] di.preference
     - [x] di.type
     - [x] di.virtualType
     - [x] di.plugin
     - [x] di.arguments
     - [x] events.event
-    - [ ] layout.block
-    - [ ] layout.container
-    - [ ] layout.referenceBlock
-    - [ ] layout.referenceContainer
-    - [ ] layout.remove
-    - [ ] layout.move
-    - [ ] layout.update
+    - [x] layout.container.open-close
+    - [x] layout.container.self-closing
+    - [x] layout.block.open-close
+    - [x] layout.block.self-closing
+    - [x] layout.referenceContainer.open-close
+    - [x] layout.referenceContainer.self-closing
+    - [x] layout.referenceBlock.open-close
+    - [x] layout.referenceBlock.self-closing
+    - [x] layout.remove
+    - [x] layout.move
+    - [x] layout.update
 - [ ] Commands
     - [x] Re-index all indexes
     - [ ] Create a new module

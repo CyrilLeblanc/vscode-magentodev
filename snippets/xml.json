@@ -17,7 +17,7 @@
 		"description": "type"
 	},
 	"DI: Virtual Type": {
-		"prefix": "di.virtualtype",
+		"prefix": "di.virtualType",
 		"body": [
 			"<virtualType name=\"${1:Vendor\\Module\\Model\\Foo}\">",
 			"\t${2}",
@@ -76,7 +76,7 @@
 		"description": "block"
 	},
 	"Layout: ReferenceContainer (start-close)": {
-		"prefix": "layout.referencecontainer.start-close",
+		"prefix": "layout.referenceContainer.start-close",
 		"body": [
 			"<referenceContainer name=\"${1:content}\" ${2|before=\"\",after=\"\"|}>",
 			"\t${3}",
@@ -85,14 +85,14 @@
 		"description": "reference container"
 	},
 	"Layout: ReferenceContainer (self-closing)": {
-		"prefix": "layout.referencecontainer.self-closing",
+		"prefix": "layout.referenceContainer.self-closing",
 		"body": [
 			"<referenceContainer name=\"${1:content}\" ${2|before=\"\",after=\"\",remove=\"true\"|} />"
 		],
 		"description": "reference container"
 	},
 	"Layout: ReferenceBlock (start-close)": {
-		"prefix": "layout.referenceblock.start-close",
+		"prefix": "layout.referenceBlock.start-close",
 		"body": [
 			"<referenceBlock name=\"${1:my_block}\" ${2|before=\"\",after=\"\"|}>",
 			"\t${3}",
@@ -101,7 +101,7 @@
 		"description": "reference block"
 	},
 	"Layout: ReferenceBlock (self-closing)": {
-		"prefix": "layout.referenceblock.self-closing",
+		"prefix": "layout.referenceBlock.self-closing",
 		"body": [
 			"<referenceBlock name=\"${1:my_block}\" ${2|before=\"\",after=\"\",remove=\"true\"|} />"
 		],

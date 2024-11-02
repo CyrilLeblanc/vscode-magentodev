@@ -4,13 +4,14 @@ All notable changes to the "magentodev" extension will be documented in this fil
 
 <!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
-## [unreleased]
+## [0.1.0] - 2024-11-01
 
 ### Added
 
+- Snippet for `layout.xml` files (`layout.block.open-close`, `layout.block.self-closing`, `layout.container.open-close`, `layout.container.self-closing`, `layout.referenceContainer.open-close`, `layout.referenceContainer.self-closing`, `layout.referenceBlock.open-close`, `layout.referenceBlock.self-closing`, `layout.remove`, `layout.move`, `layout.update`).
 - Snippet for `events.xml` files (`events.event`).
-- Snippets for `di.xml` files (`di.type`, `di.virtualtype`, `di.arguments`) 
-- Automatic content generation Observers.
+- Snippets for `di.xml` files (`di.type`, `di.virtualType`, `di.arguments`, `di.plugin`, `di.preference`).
+- Automatic content generation for Observers.
 - Extension icon.
 
 ### Changed
@@ -102,7 +103,7 @@ All notable changes to the "magentodev" extension will be documented in this fil
 - Library `xml-js`.
 - `editorconfig` configuration file.
 
-[unreleased]:  https://github.com/CyrilLeblanc/vscode-magentodev/compare/v0.0.5...HEAD
+[0.1.0]: https://github.com/CyrilLeblanc/vscode-magentodev/compare/v0.0.5...v0.1.0
 [0.0.5]: https://github.com/CyrilLeblanc/vscode-magentodev/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/CyrilLeblanc/vscode-magentodev/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/CyrilLeblanc/vscode-magentodev/compare/v0.0.2...v0.0.3
