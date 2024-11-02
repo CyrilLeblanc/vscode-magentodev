@@ -1,13 +1,13 @@
 {
-	"DI Preference": {
-		"prefix": "di.pref",
+	"DI: Preference": {
+		"prefix": "di.preference",
 		"body": [
 			"<preference for=\"${1:Vendor\\Module\\Model\\Foo}\"",
 			"\ttype=\"${2:Vendor\\Module\\Module\\Foo}\" />"
 		],
 		"description": "preference"
 	},
-	"DI Plugin": {
+	"DI: Plugin": {
 		"prefix": "di.plugin",
 		"body": [
 			"<type name=\"${1:Vendor\\Module\\Model\\Foo}\">",
@@ -17,5 +17,14 @@
 			"</type>"
 		],
 		"description": "plugin"
+	},
+	"Events: Event": {
+		"prefix": "events.event",
+		"body": [
+			"<event name=\"${1:my_module_event_after}\">",
+			"\t<observer name=\"${2:my_module_event_after_observer} instance=\"${3:MyCompany\\MyModule\\Observer\\MyEvent}\"",
+			"</event>"
+		],
+		"desription": "observer"
 	}
 }

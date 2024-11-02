@@ -39,7 +39,8 @@ You can now override a view file in a specific theme by right clicking on the fi
     - [x] layout.xml
     - [x] Block.php
     - [x] Controller.php
-    - [ ] Observer.php
+    - [x] events.xml
+    - [x] Observer.php
     - [ ] db_schema.xml
     - [ ] routes.xml
     - [ ] webapi.xml
@@ -54,7 +55,9 @@ You can now override a view file in a specific theme by right clicking on the fi
 - [ ] Snippets for common code blocks.
     - [x] di.preference
     - [x] di.plugin
+    - [ ] di.arguments
     - [ ] di.virtualType
+    - [x] events.event
     - [ ] layout.block
     - [ ] layout.container
     - [ ] layout.referenceBlock
