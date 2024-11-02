@@ -8,7 +8,8 @@ All notable changes to the "magentodev" extension will be documented in this fil
 
 ### Added
 
-- Snippet for `events.xml` files.
+- Snippet for `events.xml` files (`events.event`).
+- Snippets for `di.xml` files (`di.type`, `di.virtualtype`, `di.arguments`) 
 - Automatic content generation Observers.
 - Extension icon.
 

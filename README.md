@@ -54,9 +54,10 @@ You can now override a view file in a specific theme by right clicking on the fi
     - [ ] template.phtml
 - [ ] Snippets for common code blocks.
     - [x] di.preference
+    - [x] di.type
+    - [x] di.virtualType
     - [x] di.plugin
-    - [ ] di.arguments
-    - [ ] di.virtualType
+    - [x] di.arguments
     - [x] events.event
     - [ ] layout.block
     - [ ] layout.container

@@ -7,24 +7,49 @@
 		],
 		"description": "preference"
 	},
+	"DI: Type": {
+		"prefix": "di.type",
+		"body": [
+			"<type name=\"${1:Vendor\\Module\\Model\\Foo}\">",
+			"\t${2}",
+			"</type>"
+		],
+		"description": "type"
+	},
+	"DI: Virtual Type": {
+		"prefix": "di.virtualtype",
+		"body": [
+			"<virtualType name=\"${1:Vendor\\Module\\Model\\Foo}\">",
+			"\t${2}",
+			"</virtualType>"
+		],
+		"description": "virtual type"
+	},
 	"DI: Plugin": {
 		"prefix": "di.plugin",
 		"body": [
-			"<type name=\"${1:Vendor\\Module\\Model\\Foo}\">",
-			"\t<plugin name=\"${2:vendor_module_plugin_module_model_foo}\"",
-			"\t\ttype=\"${3:Vendor\\Module\\Plugin\\Module\\Model\\FooPlugin}\"",
-			"\t\tsortOrder=\"${4:50}\" />",
-			"</type>"
+			"<plugin name=\"${2:vendor_module_plugin_module_model_foo}\"",
+			"\ttype=\"${3:Vendor\\Module\\Plugin\\Module\\Model\\FooPlugin}\"",
+			"\tsortOrder=\"${4:50}\" />"
 		],
-		"description": "plugin"
+		"description": "plugin (must be used inside a type node)"
+	},
+	"DI: Arguments": {
+		"prefix": "di.arguments",
+		"body": [
+			"<arguments>",
+			"\t<argument name=\"${2:my_argument}\" xsi:type=\"${3:object}\">${4:Vendor\\Module\\Model\\Bar}</argument>",
+			"</arguments>"
+		],
+		"description": "arguments (must be used inside a type node)"
 	},
 	"Events: Event": {
 		"prefix": "events.event",
 		"body": [
 			"<event name=\"${1:my_module_event_after}\">",
-			"\t<observer name=\"${2:my_module_event_after_observer} instance=\"${3:MyCompany\\MyModule\\Observer\\MyEvent}\"",
+			"\t<observer name=\"${2:my_module_event_after_observer}\" instance=\"${3:MyCompany\\MyModule\\Observer\\MyEvent}\">",
 			"</event>"
 		],
-		"desription": "observer"
+		"description": "observer"
 	}
 }
