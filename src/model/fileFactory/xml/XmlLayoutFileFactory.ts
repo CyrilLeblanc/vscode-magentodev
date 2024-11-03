@@ -28,7 +28,7 @@ export default class XmlLayoutFileFactory extends XmlFileFactory
 	/**
 	 * Ask for layout type
 	 */
-	protected async askForLayoutType(): Promise<string> {
+	protected async askForLayoutType(): Promise<string|undefined> {
 		return vscode.window.showQuickPick([
 			{
 				label: '1column',
@@ -56,8 +56,6 @@ export default class XmlLayoutFileFactory extends XmlFileFactory
 			if (selected) {
 				return selected.label;
 			}
-
-			return '1column';
 		});
 	}
 
