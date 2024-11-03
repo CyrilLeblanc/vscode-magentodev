@@ -4,7 +4,7 @@ All notable changes to the "magentodev" extension will be documented in this fil
 
 <!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
-## [0.1.0] - 2024-11-01
+## [0.1.0] - 2024-11-03
 
 ### Added
 
@@ -17,6 +17,8 @@ All notable changes to the "magentodev" extension will be documented in this fil
 ### Changed
 
 - Update the `CHANGELOG.md` file.
+- Generating a layout file now ask for the layout type (can be ignored).
+- Show the context menu option `MagentoDev: Override in theme` in explorer only for valid files.
 
 ### Fixed
 
