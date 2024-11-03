@@ -46,7 +46,7 @@
         {
           "command": "magentodev.overrideInTheme",
           "group": "z_magentodev@1",
-          "when": "!explorerResourceIsFolder"
+          "when": "!explorerResourceIsFolder && resourceDirname =~ /(vendor|app\\/(code\\/(.*)\\/(.*)\\/view\\/)|design\\/(.*)_(.*))/"
         }
       ]
     },
