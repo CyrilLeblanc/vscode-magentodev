@@ -10,6 +10,7 @@ export default async function overrideInTheme(uri: vscode.Uri) {
 
 	const newUri = await getNewUri(uri, themeIndexRecord);
 	if (!newUri) {
+		vscode.window.showErrorMessage('Invalid file to override');
 		return;
 	}
 
@@ -54,7 +55,6 @@ async function askForTheme(): Promise<ThemeIndexRecord | undefined> {
 async function getNewUri(uri: vscode.Uri, theme: ThemeIndexRecord): Promise<vscode.Uri|undefined> {
 	const sourceModule = await moduleIndex.findModuleByUri(uri);
 	if (!sourceModule) {
-		vscode.window.showErrorMessage('Could not find the module for the given file');
 		return;
 	}
 
@@ -63,14 +63,12 @@ async function getNewUri(uri: vscode.Uri, theme: ThemeIndexRecord): Promise<vsco
 	const parts = inModulePath.split('/').filter(Boolean);
 
 	if (parts.shift() !== 'view') {
-		vscode.window.showErrorMessage('Invalid file to override');
 		return;
 	}
 
 	// remove the area (frontend, adminhtml, base)
 	const area = parts.shift();
 	if (['frontend', 'adminhtml', 'base'].indexOf(area!) === -1) {
-		vscode.window.showErrorMessage('Invalid file to override');
 		return;
 	}
 
