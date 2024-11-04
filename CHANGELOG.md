@@ -10,6 +10,10 @@ All notable changes to the "magentodev" extension will be documented in this fil
 
 - Set the default module in the `sequence` node of the `module.xml` file as a comment.
 
+### Fixed
+
+- Wrong content for snippet `layout.container.start-close`.
+
 ## [0.1.0] - 2024-11-03
 
 ### Added

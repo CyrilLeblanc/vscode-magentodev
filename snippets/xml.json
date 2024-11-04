@@ -47,7 +47,7 @@
 		"prefix": "layout.container.start-close",
 		"body": [
 			"<container name=\"${1:my_container}\" htmlTag=\"${2:div}\" ${3:htmlClass=\"\"} ${4:htmlId=\"\"} ${5|before=\"\",after=\"\"|}>",
-			"\t${5}",
+			"\t${6}",
 			"</container>"
 		],
 		"description": "container"
