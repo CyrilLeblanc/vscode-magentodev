@@ -4,6 +4,12 @@ All notable changes to the "magentodev" extension will be documented in this fil
 
 <!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
+## [Unreleased]
+
+### Changed
+
+- Set the default module in the `sequence` node of the `module.xml` file as a comment.
+
 ## [0.1.0] - 2024-11-03
 
 ### Added
