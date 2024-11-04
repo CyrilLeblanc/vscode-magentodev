@@ -4,7 +4,7 @@ All notable changes to the "magentodev" extension will be documented in this fil
 
 <!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
-## [Unreleased]
+## [0.1.1] - 2024-11-04
 
 ### Changed
 
@@ -115,6 +115,7 @@ All notable changes to the "magentodev" extension will be documented in this fil
 - Library `xml-js`.
 - `editorconfig` configuration file.
 
+[0.1.1]: https://github.com/CyrilLeblanc/vscode-magentodev/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/CyrilLeblanc/vscode-magentodev/compare/v0.0.5...v0.1.0
 [0.0.5]: https://github.com/CyrilLeblanc/vscode-magentodev/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/CyrilLeblanc/vscode-magentodev/compare/v0.0.3...v0.0.4
